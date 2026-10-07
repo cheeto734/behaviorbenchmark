@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BehaviorBench Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <div class="eyebrow">BEHAVIORBENCH / EVALUATION RUN</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Can models<br><em>read the room?</em></h1>
+          <p class="lede">A compact comparison of two Nemotron models against human behavior in an economic game and a Big Five survey.</p>
+        </div>
+        <div class="run-card">
+          <div class="run-label">RUN CONFIGURATION</div>
+          <div class="run-value">100 <span>examples / task</span></div>
+          <div class="run-meta">seed 42 &nbsp;|&nbsp; 2 tasks &nbsp;|&nbsp; 2 models</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section metrics-section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 / SCOREBOARD</div>
+          <h2>Model performance</h2>
+        </div>
+        <div id="status" class="status">Loading results...</div>
+      </div>
+      <div class="table-wrap">
+        <table id="metrics-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Dictator MAE <small>lower is better</small></th>
+              <th>Dictator rho <small>higher is better</small></th>
+              <th>Survey accuracy <small>higher is better</small></th>
+              <th>Survey MAE <small>lower is better</small></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section chart-section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">02 / DISTRIBUTION MATCH</div>
+          <h2>Economic-game choices</h2>
+        </div>
+        <p class="section-note">Amount offered to the other player, in dollars.</p>
+      </div>
+      <div class="chart-panel"><canvas id="dictator-chart"></canvas></div>
+    </section>
+
+    <section class="section chart-section survey-section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">03 / RESPONSE SHAPE</div>
+          <h2>Big Five survey responses</h2>
+        </div>
+        <p class="section-note">Response scale from 1 (low) to 5 (high).</p>
+      </div>
+      <div class="chart-panel"><canvas id="survey-chart"></canvas></div>
+    </section>
+
+    <footer class="footer">
+      <span>BehaviorBench / local results viewer</span>
+      <span>API inference was free; paid estimate: about $0.14</span>
+    </footer>
+  </main>
+</body>
+</html>
